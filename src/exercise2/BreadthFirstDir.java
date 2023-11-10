@@ -4,28 +4,35 @@ import java.util.*;
 import exercise1.UndirDirGraph3;
 import exercise2.Vertex;
 
-public class DepthFirst {
-  protected UndirDirGraph3 graph;
+
+public class BreadthFirstDir {
+  protected UndirDirGraph3.DirGraph graph;
   protected boolean[] marked;
   protected int[] edgeTo;
   protected int s; // initial vertex
 
-  DepthFirst (UndirDirGraph3 graph, int s) {
+  BreadthFirstDir (UndirDirGraph3.DirGraph graph, int s) {
     this.graph = graph;
     this.s = s;
     marked = new boolean[graph.getNumVertices()];
     edgeTo = new int[graph.getNumVertices()];
-    Dfs(s);
+    Bfs(s);
   }
 
-  void Dfs (int v) {
+  void Bfs (int v) {
+    Queue<Integer> queue = new LinkedList<>();
+    queue.add(v);
     marked[v] = true;
-    Iterator<Integer> it = graph.getAdjIterator(v);
-    while (it.hasNext()) {
-      int w = it.next();
-      if (!marked[w]) {
-        edgeTo[w] = v;
-        Dfs(w);
+    while (!queue.isEmpty()) {
+      int w = queue.remove();
+      Iterator<Integer> it = graph.getAdjIterator(w);
+      while (it.hasNext()) {
+        int x = it.next();
+        if (!marked[x]) {
+          queue.add(x);
+          marked[x] = true;
+          edgeTo[x] = w;
+        }
       }
     }
   }
@@ -46,4 +53,5 @@ public class DepthFirst {
     return path;
     
   }
+  
 }

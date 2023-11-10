@@ -2,6 +2,13 @@ package exercise2;
 import java.lang.reflect.Array;
 import java.util.*;
 import exercise2.Vertex;
+
+import exercise2.BreadthFirstDir;
+import exercise2.DepthFirstDir;
+
+import exercise2.BreadthFirstUndir;
+import exercise2.DepthFirstUndir;
+
 public class UndirDirGraph3 {
     protected int V; // numero de vertices
     protected int E = 0; // numero de edges
@@ -77,6 +84,7 @@ public class UndirDirGraph3 {
             adj.get(v).removeAdj(w); // remover arco v->w. (Integer) para que no se confunda con el indice
             E--;
         }
+        
     }
 
     public class UndirGraph extends UndirDirGraph3 {
@@ -120,5 +128,7 @@ public class UndirDirGraph3 {
       } else {
           System.out.println("0 does not have 2");
       }
+    DepthFirstUndir h = f.new DepthFirstUndir(g, 0);
+          
   }
 }

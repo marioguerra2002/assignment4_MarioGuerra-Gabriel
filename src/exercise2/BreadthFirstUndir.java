@@ -5,13 +5,13 @@ import exercise1.UndirDirGraph3;
 import exercise2.Vertex;
 
 
-public class BreadthFirst {
-  protected UndirDirGraph3 graph;
+public class BreadthFirstUndir {
+  protected UndirDirGraph3.UndirGraph graph;
   protected boolean[] marked;
   protected int[] edgeTo;
   protected int s; // initial vertex
 
-  BreadthFirst (UndirDirGraph3 graph, int s) {
+  BreadthFirstUndir (UndirDirGraph3.UndirGraph graph, int s) {
     this.graph = graph;
     this.s = s;
     marked = new boolean[graph.getNumVertices()];
