@@ -1,21 +1,21 @@
 // implementar indirecto y directo grafos usando listas de adyacencia
-package exercise1;
+package pruebas;
 import java.util.*;
 
-public class UndirDirGraph {
+public class UndirDirGraph2 {
     private int V; // numero de vertices
     private int E = 0; // numero de edges
     private Map<Integer, List<Integer>> adj = new HashMap<>(); // lista de adyacencia
 
     // constructor
-    UndirDirGraph(int v) {
+    UndirDirGraph2(int v) {
         V = v;
         adj = new HashMap<>();
         for (int i=0; i < v; ++i) {
         	adj.put(i, new ArrayList<>()); // inicializar listas de adyacencia (cada vertice tiene una lista de adyacencia)
     	}
 	}
-    UndirDirGraph() {
+    UndirDirGraph2() {
         V = 0;
         adj = new HashMap<Integer, List<Integer>>();
     }
@@ -109,7 +109,7 @@ public class UndirDirGraph {
     }
     public static void main(String[] args) {
         // UndirDirGraph g = new UndirDirGraph(12);
-        UndirDirGraph f = new UndirDirGraph(11);
+        UndirDirGraph2 f = new UndirDirGraph2(11);
         UndirGraph g = f.new UndirGraph(11);
         g.addEdge(0,2);
         g.addEdge(2,3);
@@ -122,7 +122,9 @@ public class UndirDirGraph {
         g.addEdge(7, 8);
         g.addEdge(8, 9);
         g.addEdge(9, 10);
-        g.addEdge(10, 6);      
+        g.addEdge(10, 6);
+        System.out.println("V = " + g.getNumVertices());   
+        System.out.println("E = " + g.getNumEdges());   
         
     }
 }
