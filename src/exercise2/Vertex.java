@@ -30,4 +30,5 @@ public class Vertex {
     public int getDegree() {
         return adj.size();
     }
+    
 }
